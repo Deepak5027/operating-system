@@ -1,0 +1,91 @@
+Q1.BASE & LIMIT REGISTER
+#include<stdio.h>
+
+int main() {
+    int base=1000, limit=500, logical;
+
+    printf("Enter Logical Address: ");
+    scanf("%d",&logical);
+
+    if(logical < limit)
+        printf("Physical Address = %d", base + logical);
+    else
+        printf("Invalid Address");
+
+    return 0;
+}
+Enter Logical Address: 200
+Physical Address = 1200
+
+Q2 PAGING
+#include<stdio.h>
+
+int main() {
+    int pageSize=100, frame, offset;
+
+    printf("Enter Frame Number: ");
+    scanf("%d",&frame);
+
+    printf("Enter Offset: ");
+    scanf("%d",&offset);
+
+    printf("Physical Address = %d", frame*pageSize+offset);
+
+    return 0;
+}
+Enter Frame Number: 5
+Enter Offset: 20
+Physical Address = 520
+
+Q3 PAGE TABLE 
+#include<stdio.h>
+
+int main() {
+    int pageTable[3]={2,4,6};
+    int page, offset=10;
+
+    printf("Enter Page Number: ");
+    scanf("%d",&page);
+
+    printf("Frame = %d\n", pageTable[page]);
+    printf("Physical Address = %d", pageTable[page]*100+offset);
+
+    return 0;
+}
+Enter Page Number: 1
+Frame = 4
+Physical Address = 410
+
+Q4 TLB 
+#include<stdio.h>
+
+int main() {
+    float hit=0.8;
+    int mat=100;
+
+    float emat = hit*(mat+10) + (1-hit)*(2*mat+10);
+
+    printf("EMAT = %.2f ns", emat);
+
+    return 0;
+}
+EMAT = 130.00 ns
+
+Q5 MEMORY PROTECTION
+#include<stdio.h>
+
+int main() {
+    int limit=500, logical;
+
+    printf("Enter Logical Address: ");
+    scanf("%d",&logical);
+
+    if(logical < limit)
+        printf("Access Granted");
+    else
+        printf("Access Denied");
+
+    return 0;
+}
+Enter Logical Address: 600
+Access Denied
